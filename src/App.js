@@ -13,56 +13,15 @@ kullanarak (buton->onclick) onsubmit eventine listener
 
 function App() {
 
-  const [ad,setAd]=useState("");
-  const [Soyad,setSoyad]=useState("");
 
-
- const formuDenetle =(event) => {
-  event.preventDefault();
-  /* validetion */
-  if(ad===""){
-    alert("ad boş bırakılamaz")
-    return
-  }
-  if(Soyad ===""){
-    alert("soyad boş bırakılamaz")
-    return
-  }
-  alert("FORM BAŞARILI")
-}
-
+ 
   return (
     <div className="App">
-        <form onSubmit={formuDenetle}>
-          <div>
-            <label>Adı:</label>
-            <input value={ad} onChange={(event)=>{
-              setAd(event.target.value)
-            }} placeholder="Dr.Alex"></input>
-          </div>
-          <div>
-            <label>Soyadı:</label>
-            <input value={Soyad} onChange={(event)=>{
-              setSoyad(event.target.value) 
-            }} placeholder="fergusson"></input>
-          </div>
-          <div>
-           <button type="submit">Gönder</button>
-          </div>
-        </form>
+        <h1>ben burdayım
+                  </h1>
 
     </div>
   );
 }
-/*
-JAVASCRİPT TE YAPIMI BU ŞEKİLDE;
-
-const input=document.createElement("input")
-input.addEventListener.('change',(event)=>{
-  event.target.value
-})
-*/
-
-/* input handle ->1.controlled olarak çok kullanıyoruz. */
 
 export default App;
