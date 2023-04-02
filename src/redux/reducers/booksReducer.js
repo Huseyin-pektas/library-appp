@@ -3,11 +3,11 @@ import actionType from "../actions/actionTypes";
 
 
 const initialState ={
-    pending:"false",
-    success:"false",
+    pending:false,
+    success:false,
     books:[],
-    error:"false",
-    errorMessage:"",
+    error:false,
+    errorMessage:""
 };
 const booksReducer = (state =initialState,action)=>{
 switch (actionType) {
@@ -15,14 +15,14 @@ switch (actionType) {
         
         return{
             ...state,
-            panding:"true"
+            panding:true
         };
  case actionType.bookActions.GET_BOOXS_SUCCESS:
     return{
         ...state,
-        panding:"false",
-        success:"true",
-        error:"false",
+        panding:false,
+        success:true,
+        error:false,
         books:action.payload
 
     };
@@ -30,9 +30,9 @@ switch (actionType) {
     case actionType.bookActions.GET_BOOXS_FAIL:
         return{
             ...state,
-        panding:"false",
-        success:"false",
-        error:"true",
+        panding:false,
+        success:false,
+        error:true,
         errorMessage:action.payload
         };
 
@@ -40,3 +40,4 @@ switch (actionType) {
        return state
 }
 }
+export default booksReducer
