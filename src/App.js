@@ -18,7 +18,6 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Library App Uygulaması</h1>
     <BrowserRouter>
     <Routes>
 
