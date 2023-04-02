@@ -1,0 +1,24 @@
+{
+    "book":[
+        {
+            "id":"1",
+            "title":"zamanın farkında",
+            "yazar":"şule çetin",
+            "yayınevi":"iletişim",
+            "fiyatı":50,
+            "ısbn":"439063535463",
+            "categoriesId":"1"
+
+        }
+    ],
+    "categories":[
+        {
+            "id":"1",
+            "name":"roman"
+        },
+        {
+            "id":"2",
+            "name":"hikaye"
+        }
+    ]
+}

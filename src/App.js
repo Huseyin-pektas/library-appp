@@ -17,8 +17,7 @@ function App() {
  
   return (
     <div className="App">
-        <h1>ben burdayım
-                  </h1>
+        <h1>ben burdayım</h1>
 
     </div>
   );
