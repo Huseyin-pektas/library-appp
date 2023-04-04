@@ -39,7 +39,7 @@ function App() {
           .then(res => {dispatch( {type:actionType.categoriesActions.GET_CATEGORİES_SUCCESS,
             payload :res.data}) })
           .catch(err => {dispatch( {type:actionType.categoriesActions.GET_CATEGORİES_FAIL ,
-            payload :"Kategori bilgileri çekilirken bir hata oluştu",})
+            payload :"Kategori bilgileri çekilirken bir hata oluştu"})
             })
   }, [])
 

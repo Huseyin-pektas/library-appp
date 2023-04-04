@@ -1,7 +1,7 @@
 import actionType from "../actions/actionTypes";
 
 const initialState = {
-    panding: false,
+    panding: true,
     success: false,
     categories: [],
     error: false,

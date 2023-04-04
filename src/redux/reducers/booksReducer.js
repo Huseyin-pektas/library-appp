@@ -3,7 +3,7 @@ import actionType from "../actions/actionTypes";
 
 
 const initialState ={
-    pending:false,
+    pending:true,
     success:false,
     books:[],
     error:false,
