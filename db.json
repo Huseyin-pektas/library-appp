@@ -9,16 +9,26 @@
             "ısbn":"439063535463",
             "categoriesId":"1"
 
+        },
+        {
+            "id":"2",
+            "title":"Puslu Kıtalar Diyarı",
+            "yazar":"Melih cevdet Anday",
+            "yayınevi":"İletişim",
+            "fiyatı":70,
+            "ısbn":"439063535463",
+            "categoriesId":"2"
+
         }
     ],
     "categories":[
         {
             "id":"1",
-            "name":"roman"
+            "name":"Roman"
         },
         {
             "id":"2",
-            "name":"hikaye"
+            "name":"Hikaye"
         }
     ]
 }

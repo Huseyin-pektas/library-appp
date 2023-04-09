@@ -13,7 +13,7 @@ const Error = () => {
       alignItems: "center",
     }}>
       <div className="alert alert-danger" role="alert">
-        Uygulama bilgileri çekerken bir hata oluştu
+        Uygulama bilgileri çekerken bir hata oluştu. Tekrar deneyin
       </div>
     </div>
   )
