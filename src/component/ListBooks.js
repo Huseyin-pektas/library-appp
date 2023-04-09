@@ -12,7 +12,7 @@ const ListBooks = () => {
     return (
         <div>
             {booksState.books.length === 0 && (
-                <div className="my-5">
+                <div className="my-5 d-flex justify-content-center">
                     <div className="alert alert-danger" role="alert">
                         Gösterilecek bir kitap bulunmamaktadır.
                     </div>
@@ -46,17 +46,6 @@ const ListBooks = () => {
                                         </tr>
                                     )
                                 })}
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>Jacob</td>
-                                <td>Thornton</td>
-                                <td>@fat</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td colspan="2">Larry the Bird</td>
-                                <td>@twitter</td>
-                            </tr>
                         </tbody>
                     </table>
                 </div>
