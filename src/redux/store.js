@@ -1,11 +1,11 @@
 import {combineReducers,createStore} from "redux";
 import React from "react";
 import booksReducer from "./reducers/booksReducer";
-import categorieesReducer from "./reducers/categoriesReducer";
+import categoriesReducer from "./reducers/categoriesReducer";
 
 const rootReducer=combineReducers({
 booksState:booksReducer,
-categoriesState:categorieesReducer
+categoriesState:categoriesReducer
 })
 
 const store=createStore(rootReducer);

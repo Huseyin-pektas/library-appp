@@ -1,14 +1,14 @@
-const actionType={
+const actionTypes={
     bookActions:{
-        GET_BOOXS_START:"GET_BOOXS_START",
-        GET_BOOXS_SUCCESS:"GET_BOOXS_SUCCESS",
-        GET_BOOXS_FAIL:"GET_BOOXS_FAIL"
+        GET_BOOKS_START:"GET_BOOKS_START",
+        GET_BOOKS_SUCCESS:"GET_BOOKS_SUCCESS",
+        GET_BOOKS_FAIL:"GET_BOOKS_FAIL"
     },
-    categoriesActions:{
-        GET_CATEGORİES_START:"GET_CATEGORİES_START",
-        GET_CATEGORİES_SUCCESS:"GET_CATEGORİES_SUCCESS",
-        GET_CATEGORİES_FAIL:"GET_CATEGORİES_FAIL"
+    categoryActions:{
+        GET_CATEGORIES_START:"GET_CATEGORIES_START",
+        GET_CATEGORIES_SUCCESS:"GET_CATEGORIES_SUCCESS",
+        GET_CATEGORIES_FAIL:"GET_CATEGORIES_FAIL"
     },
 }
 
-export default actionType
+export default actionTypes

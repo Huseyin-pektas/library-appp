@@ -1,4 +1,5 @@
-import actionType from "../actions/actionTypes";
+import actionTypes from "../actions/actionTypes";
+import React from "react";
 
 const initialState = {
     panding: true,
@@ -9,29 +10,29 @@ const initialState = {
 }
 
 
-const categorieesReducer = (state = initialState, action) => {
-    switch (actionType) {
-        case actionType.categoriesActions.GET_CATEGORİES_START:
+const categoriesReducer = (state = initialState, action) => {
+    switch (action.type) {
+        case actionTypes.categoryActions.GET_CATEGORIES_START:
             return {
                 ...state,
                 pending: true,
             };
-        case actionType.categoriesActions.GET_CATEGORİES_SUCCESS:
+        case actionTypes.categoryActions.GET_CATEGORIES_SUCCESS:
             return {
                 ...state,
                 pending: false,
                 success: true,
                 error: false,
-                categoriees: action.payload
+                categories: action.payload
 
             };
-        case actionType.categoriesActions.GET_CATEGORİES_FAIL:
+        case actionTypes.categoryActions.GET_CATEGORIES_FAIL:
             return {
                 ...state,
                 pending: false,
                 success: false,
                 error: true,
-                categoriees: action.payload
+                categories: action.payload
 
             };
 
@@ -40,4 +41,4 @@ const categorieesReducer = (state = initialState, action) => {
     }
 }
 
-export default categorieesReducer
+export default categoriesReducer

@@ -1,39 +1,35 @@
-import { act } from "@testing-library/react";
-import actionType from "../actions/actionTypes";
+import actionTypes from "../actions/actionTypes";
 
 
-const initialState ={
-    pending:true,
-    success:false,
-    books:[],
-    error:false,
-    errorMessage:""
-};
-const booksReducer = (state =initialState,action)=>{
-switch (actionType) {
-    case actionType.bookActions.GET_BOOXS_START:
-        
-        return{
-            ...state,
-            panding:true
+const initialState = {
+    pending: true,
+    success: false,
+    books: [],
+    error: false,
+    errorMessage: "",
+  };
+  const booksReducer = (state = initialState, action) => {
+    switch (action.type) {
+      case actionTypes.bookActions.GET_BOOKS_START:
+        return {
+          ...state,
+          pending: true,
         };
- case actionType.bookActions.GET_BOOXS_SUCCESS:
-    return{
-        ...state,
-        panding:false,
-        success:true,
-        error:false,
-        books:action.payload
-
-    };
-
-    case actionType.bookActions.GET_BOOXS_FAIL:
-        return{
-            ...state,
-        panding:false,
-        success:false,
-        error:true,
-        errorMessage:action.payload
+      case actionTypes.bookActions.GET_BOOKS_SUCCESS:
+        return {
+          ...state,
+          pending: false,
+          success: true,
+          error: false,
+          books: action.payload,
+        };
+      case actionTypes.bookActions.GET_BOOKS_FAIL:
+        return {
+          ...state,
+          pending: false,
+          success: false,
+          error: true,
+          errorMessage: action.payload,
         };
 
     default:

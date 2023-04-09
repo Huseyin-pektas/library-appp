@@ -1,5 +1,8 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import actionTypes from "../redux/actions/actionTypes";
+import api from "../api/api";
+import url from "../api/url";
 
 
 
@@ -11,7 +14,7 @@ const ListBooks = () => {
             {booksState.books.length === 0 && (
                 <div className="my-5">
                     <div className="alert alert-danger" role="alert">
-                        Gösterilecek bir kitap nulunmamaktadır.
+                        Gösterilecek bir kitap bulunmamaktadır.
                     </div>
                 </div>
             )}
@@ -28,13 +31,12 @@ const ListBooks = () => {
                         </thead>
                         <tbody>
                             {
-                                booksState.books.map((books, index) => {
-                                    const mayCategory = categoriesState.categories.find((item) => item.id === books.categoriesId)
-                                    console.log(mayCategory, "fdgdgg")
+                                booksState.books.map((book, index) => {
+                                    const mayCategory = categoriesState.categories.find((item) => item.id === book.categoriesId)
                                     return (
-                                        <tr key={books.id}>
+                                        <tr key={book.id}>
                                             <th scope="row">{index + 1}</th>
-                                            <td>{books.title}</td>
+                                            <td>{book.title}</td>
                                             <td>{mayCategory.name}</td>
                                             <div className="btn-group" role="group" >
                                                 <button type="button" className="btn btn-sm btn-secondary">Detay</button>

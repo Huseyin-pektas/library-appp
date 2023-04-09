@@ -1,6 +1,6 @@
 
 import React, { useEffect, useState } from "react";
-import actionType from "./redux/actions/actionTypes";
+import actionTypes from "./redux/actions/actionTypes";
 import { useDispatch, useSelector } from "react-redux";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
@@ -13,44 +13,54 @@ import Error from "./component/Error";
 
 
 function App() {
-  const dispatch= useDispatch();
+  /* const booksState=useSelector(state=>state.booksState)
+  const categoriesState=useSelector(state => state.categoriesState) */
+  const { booksState, categoriesState } = useSelector( (state) => state  );
 
-  // const allSelector=useSelector(state=>state)
-  // const bookState=useSelector(state=>state.bookState)
-  // const categoriesState=useSelector(state=>state.categoriesState)
-  const { categoriesState, bookState } = useSelector(state => state)
+  const dispatch = useDispatch();
 
- 
   useEffect(() => {
-    dispatch ({type:actionType.bookActions.GET_BOOXS_START});
-    // axios.get("http://localhost:3004")
-    // axios ile aynı işi yapıyor.
-    api.get(url.books)
-      .then(res => {dispatch( {type:actionType.bookActions.GET_BOOXS_SUCCESS ,
-        payload :res.data}) })
+    /* get books */
+    dispatch({ type: actionTypes.bookActions.GET_BOOKS_START });
+    api
+      .get(url.books)
+      .then((res) => {
+        setTimeout(() => {
+          dispatch({
+            type:actionTypes.bookActions.GET_BOOKS_SUCCESS,
+            payload: res.data,
+          });
+        }, 2000);
+      })
+      .catch((err) => {
+        dispatch({
+          type: actionTypes.bookActions.GET_BOOKS_FAIL,
+          payload: "Kitapları çekme işlemi esnasında bir hata oluştu",
+        });
+      });
+    /* get categories */
+    dispatch({ type: actionTypes.categoryActions.GET_CATEGORIES_START });
+    api
+      .get(url.categories)
+      .then((res) => {
+        setTimeout(() => {
+          dispatch({
+            type: actionTypes.categoryActions.GET_CATEGORIES_SUCCESS,
+            payload: res.data,
+          });
+        }, 2000);
+      })
+      .catch((err) => {
+        dispatch({
+          type: actionTypes.categoryActions.GET_CATEGORIES_FAIL,
+          payload: "Kategori bilgilerini çekerken bir hata oluştu.",
+        });
+      });
+  }, []);
+  if(booksState.pending === true  || categoriesState.pending === true ) return <Loading/>
+  if(booksState.err === true  || categoriesState.err === true ) return <Error/>
 
-      .catch(err => {dispatch( {type:actionType.bookActions.GET_BOOXS_FAIL ,
-        payload :"Kitaplar çekilirken bir hata oluştu"})
-        })
-
-        dispatch ({type:actionType.categoriesActions.GET_CATEGORİES_START});
-       
-        api.get(url.categories)
-          .then(res => {dispatch( {type:actionType.categoriesActions.GET_CATEGORİES_SUCCESS,
-            payload :res.data}) })
-          .catch(err => {dispatch( {type:actionType.categoriesActions.GET_CATEGORİES_FAIL ,
-            payload :"Kategori bilgileri çekilirken bir hata oluştu"})
-            })
-  }, [])
-
-  // if(bookState.pending===true || categoriesState.console.pending===true)
-  //   return <Loading/>
-    // if(bookState.error===true || categoriesState.console.error===true)
-    // return <Error/>
-  
-  
-
-  return (
+    return (
     <div className="App">
       <BrowserRouter>
         <Routes>
@@ -58,10 +68,10 @@ function App() {
           <Route
             path="/" element={<Home />}>
           </Route>
-          
 
-          <Route 
-          path="*" element={<NotFound />}>
+
+          <Route
+            path="*" element={<NotFound />}>
           </Route>
         </Routes>
       </BrowserRouter>
