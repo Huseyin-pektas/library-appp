@@ -3,6 +3,8 @@ import { useSelector } from "react-redux";
 import actionTypes from "../redux/actions/actionTypes";
 import api from "../api/api";
 import url from "../api/url";
+import UpperFirstLetter from "../utils/functions";
+import Button from "./Button";
 
 
 
@@ -10,17 +12,17 @@ const ListBooks = () => {
     const { booksState, categoriesState } = useSelector(state => state)
 
     return (
-        <div>
+        <div >
             {booksState.books.length === 0 && (
-                <div className="my-5 d-flex justify-content-center">
+                <div className="my-5 p-2 d-flex justify-content-center" >
                     <div className="alert alert-danger" role="alert">
                         Gösterilecek bir kitap bulunmamaktadır.
                     </div>
                 </div>
             )}
             {booksState.books.length > 0 && (
-                <div className="my-5" >
-                    <table className="table .table-striped">
+                <div >
+                    <table className="table table-striped">
                         <thead>
                             <tr>
                                 <th scope="col">Sıra No</th>
@@ -36,8 +38,8 @@ const ListBooks = () => {
                                     return (
                                         <tr key={book.id}>
                                             <th scope="row">{index + 1}</th>
-                                            <td>{book.title}</td>
-                                            <td>{mayCategory.name}</td>
+                                            <td>{UpperFirstLetter(book.title)}</td>
+                                            <td>{UpperFirstLetter (mayCategory.name)}</td>
                                             <div className="btn-group" role="group" >
                                                 <button type="button" className="btn btn-sm btn-secondary">Detay</button>
                                                 <button type="button" className="btn btn-sm btn-danger">Sil</button>
