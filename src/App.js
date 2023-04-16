@@ -10,6 +10,7 @@ import api from "./api/api";
 import url from "./api/url";
 import Loading from "./component/Loading";
 import Error from "./component/Error";
+import AddBook from "./pages/AddBook";
 
 
 function App() {
@@ -68,7 +69,9 @@ function App() {
           <Route
             path="/" element={<Home />}>
           </Route>
-
+          <Route
+            path="/add-book" element={<AddBook />}>
+          </Route>
 
           <Route
             path="*" element={<NotFound />}>

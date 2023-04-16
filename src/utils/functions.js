@@ -2,7 +2,7 @@ import React from "react"
 
  const UpperFirstLetter = (sample= "") => {
     let words = sample.split(" ")
-    console.log(words)
+    
     //split = cümleleri kelimelere  birbirinden ayırma
 
   let newWords = []
@@ -22,7 +22,7 @@ import React from "react"
 
   const newSample= newWords.join(" ")
 
-  console.log(newWords)
+  
     return newSample
 }
 
